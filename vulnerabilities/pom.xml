@@ -7,9 +7,21 @@
     <groupId>org.example</groupId>
     <artifactId>vulnerabilities</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
-        <selenium.web.driver.version>4.2.2</selenium.web.driver.version>
+        <selenium.web.driver.version>4.3.0</selenium.web.driver.version>
         <lombok.version>1.18.24</lombok.version>
     </properties>
 
