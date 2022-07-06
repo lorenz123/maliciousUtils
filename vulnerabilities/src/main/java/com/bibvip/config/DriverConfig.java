@@ -14,6 +14,10 @@ import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 
 import static com.bibvip.consts.BaseURL.PROD_BASE_URL;
+import static com.bibvip.utility.vulnerabilities.BigDecimalGeneratorUtil.generateNegativeDecimals;
+import static com.bibvip.utility.vulnerabilities.BigDecimalGeneratorUtil.generatePositiveDecimals;
+import static com.bibvip.utility.vulnerabilities.BigIntegerGeneratorUtil.generateNegativeIntegers;
+import static com.bibvip.utility.vulnerabilities.BigIntegerGeneratorUtil.generatePositiveIntegers;
 import static com.bibvip.utility.vulnerabilities.JavascriptErrorsUtil.extractJSLogsInfo;
 import static com.bibvip.utility.vulnerabilities.PageLoadTimeUtil.getPageLoadTime;
 import static com.bibvip.utility.vulnerabilities.WaitingTimeUtil.getWebDriverWait;
@@ -25,7 +29,7 @@ import static com.bibvip.utility.vulnerabilities.WaitingTimeUtil.getWebDriverWai
 @Slf4j
 public class DriverConfig {
     public static WebDriver driver = null;
-    public static WebDriverWait wait = null;
+    public static WebDriverWait driverWait = null;
 
     public static WebDriver getChromeConfig() throws TimeoutException {
 
@@ -35,12 +39,16 @@ public class DriverConfig {
         capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingPreferences);
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        wait = getWebDriverWait(driver);
+        driverWait = getWebDriverWait(driver);
 
         getPageLoadTime(PROD_BASE_URL);
         log.info("Connection Established!");
         extractJSLogsInfo(driver);
 
+        log.info("Random Positive Doubles : " + generatePositiveDecimals());
+        log.info("Random Negative Doubles : " + generateNegativeDecimals());
+        log.info("Random Positive Integers : " + generatePositiveIntegers());
+        log.info("Random Positive Integers : " + generateNegativeIntegers());
         return driver;
     }
 }

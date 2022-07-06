@@ -18,39 +18,30 @@ import static com.bibvip.utility.vulnerabilities.ExceedLoadTimeUtil.exceedExpect
  */
 @Slf4j
 public class PageLinksErrorUtil {
-    private static long start;
-    private static long finish;
-    private static long totalTime;
 
-    public static void checkPageLinksForErrors(WebDriver driver) throws TimeoutException, IOException {
+    public static void checkPageLinksForErrors(WebDriver driver) throws IOException {
 
-        List<WebElement> l = driver.findElements(By.tagName("a"));
+        List<WebElement> elementList = driver.findElements(By.tagName("a"));
 
-        try {
-            for (int j = 0; j < l.size(); j++) {
+        for (int j = 0; j <= elementList.size(); j++) {
 
-                WebElement e = l.get(j);
-                String links = e.getAttribute("href");
-                URL link = new URL(links);
+            WebElement element = elementList.get(j);
+            String links = element.getAttribute("href");
+            URL link = new URL(links);
 
-                start = System.currentTimeMillis();
-                HttpURLConnection connection = (HttpURLConnection) link.openConnection();
-                finish = System.currentTimeMillis();
-                totalTime = finish - start;
-                log.info("Loading per each get: " + totalTime);
-                exceedExpectedLoadTime(totalTime);
-                connection.setConnectTimeout(2000);
-                connection.connect();
+            HttpURLConnection connection = (HttpURLConnection) link.openConnection();
 
-                if (connection.getResponseCode() == 200) {
-                    log.info(links + " - " + connection.getResponseMessage());
-                }
-                if (connection.getResponseCode() == 404) {
-                    log.info(links + " - " + connection.getResponseMessage());
-                }
+            connection.setConnectTimeout(2000);
+
+            //TODO SocketException: Software caused connection abort: recv failed
+            connection.connect();
+
+            if (connection.getResponseCode() == 200) {
+                log.info(links + " - " + connection.getResponseMessage());
             }
-        } catch (TimeoutException exception) {
-            log.error("Timeout Exception " + exception);
+            if (connection.getResponseCode() == 404) {
+                log.info(links + " - " + connection.getResponseMessage());
+            }
         }
 
 

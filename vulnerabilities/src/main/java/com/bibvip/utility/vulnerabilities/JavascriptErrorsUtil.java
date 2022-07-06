@@ -15,17 +15,19 @@ import java.util.Date;
 @Slf4j
 public class JavascriptErrorsUtil {
 
-    public static void extractJSLogsInfo(WebDriver driver) {
-        LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
-        for(LogEntry entry : logEntries){
-            log.info(new Date(entry.getTimestamp()) + " | " + entry.getLevel() + " | " + entry.getMessage());
+    public static String extractJSLogsInfo(WebDriver driver) {
 
-            if(entry != null) {
-                log.info("Some JavaScript errors are detected!!!");
-            } else {
-                log.info("Good thing! The page is free from JavaScript errors!");
-            }
+        LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+        String result = null;
+        for(LogEntry entry : logEntries){
+            result = new Date(entry.getTimestamp()) + " | " + entry.getLevel() + " | " + entry.getMessage();
+            log.info("Some JavaScript errors are detected!!! {}", result);
         }
+
+        if(result == null){
+            log.info("Good thing! The page is free from JavaScript errors!");
+        }
+        return result;
 
     }
 

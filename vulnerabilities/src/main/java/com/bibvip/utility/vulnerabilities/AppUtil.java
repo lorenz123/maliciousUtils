@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class AppUtil {
     public static By getBy(String path, ElementType type) {
-        switch (type){
+        switch (type) {
             case ID:
                 return By.id(path);
             case NAME:

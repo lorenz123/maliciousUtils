@@ -1,6 +1,5 @@
 package com.bibvip.utility.vulnerabilities;
 
-import com.bibvip.consts.ElementType;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,18 +21,18 @@ public class WaitingTimeUtil {
     public static final Integer POLLING_TIME = 1;
 
     static WebElement element;
-    static WebDriverWait wait;
+    static WebDriverWait driverWait;
 
-    public static WebElement getElementWithPolling(WebDriverWait wait, By webElementBy) {
+    public static WebElement getElementWithPolling(WebDriverWait driverWait, By webElementBy) {
 
-        wait.pollingEvery(Duration.ofSeconds(POLLING_TIME));
-        element = wait.until(ExpectedConditions.visibilityOfElementLocated(webElementBy));
+        driverWait.pollingEvery(Duration.ofSeconds(POLLING_TIME));
+        element = driverWait.until(ExpectedConditions.visibilityOfElementLocated(webElementBy));
         return element;
     }
 
     public static WebDriverWait getWebDriverWait(WebDriver driver) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(WAITING_TIME));
-        return wait;
+        driverWait = new WebDriverWait(driver, Duration.ofSeconds(WAITING_TIME));
+        return driverWait;
     }
 
 

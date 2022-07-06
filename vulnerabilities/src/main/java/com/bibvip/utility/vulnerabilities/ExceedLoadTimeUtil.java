@@ -11,10 +11,10 @@ import java.util.concurrent.TimeoutException;
 public class ExceedLoadTimeUtil {
 
     public static void exceedExpectedLoadTime(long totalTime) throws TimeoutException {
-        if (totalTime < 10000) {
+        if (totalTime < 20000) {
             log.info("Loading of this part is properly handled.");
         } else {
-            log.error("The loading of this part needs improvement! Exceeds 10s");
+            log.error("The loading of this part needs improvement! Exceeds 20s"); //change, depending on requirements (Ex. 3seconds is the ideally loading)
             throw new TimeoutException();
         }
     }

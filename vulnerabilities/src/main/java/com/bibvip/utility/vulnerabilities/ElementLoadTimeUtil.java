@@ -17,15 +17,11 @@ import static com.bibvip.utility.vulnerabilities.WaitingTimeUtil.getElementWithP
 @Slf4j
 public class ElementLoadTimeUtil {
 
-    private static long start;
-    private static long finish;
-    private static long totalTime;
-
-    public static WebElement getElementLoadTime(WebDriverWait wait, String url, ElementType type) throws TimeoutException {
-        start = System.currentTimeMillis();
-        WebElement element = getElementWithPolling(wait, getBy(url, type));
-        finish = System.currentTimeMillis();
-        totalTime = finish - start;
+    public static WebElement getElementLoadTime(WebDriverWait driverWait, String url, ElementType type) throws TimeoutException {
+        long start = System.currentTimeMillis();
+        WebElement element = getElementWithPolling(driverWait, getBy(url, type));
+        long finish = System.currentTimeMillis();
+        long totalTime = finish - start;
         log.info("Total time to finish loading element : " + element.getText() + " = " + totalTime);
         exceedExpectedLoadTime(totalTime);
 

@@ -22,17 +22,14 @@ import static com.bibvip.utility.vulnerabilities.WaitingTimeUtil.getElementWithP
 @Slf4j
 public class IframeElementLoadTimeUtil {
 
-    private static long start;
-    private static long finish;
-    private static long totalTime;
 
-    public static WebElement getIframeElementLoadTime(WebDriverWait wait, String iframePath, String url, ElementType type) throws TimeoutException {
-        start = System.currentTimeMillis();
-        WebElement iframe = getElementWithPolling(wait, getBy(iframePath, TAG_NAME)); //Solution to my problem <3
+    public static WebElement getIframeElementLoadTime(WebDriverWait driverWait, String iframePath, String url, ElementType type) throws TimeoutException {
+        long start = System.currentTimeMillis();
+        WebElement iframe = getElementWithPolling(driverWait, getBy(iframePath, TAG_NAME)); //Solution to my problem <3
         driver.switchTo().frame(iframe);
-        WebElement element = getElementWithPolling(wait, getBy(url, type));
-        finish = System.currentTimeMillis();
-        totalTime = finish - start;
+        WebElement element = getElementWithPolling(driverWait, getBy(url, type));
+        long finish = System.currentTimeMillis();
+        long totalTime = finish - start;
         log.info("Total time to finish loading element : " + element.getText() + " = " + totalTime);
         exceedExpectedLoadTime(totalTime);
 

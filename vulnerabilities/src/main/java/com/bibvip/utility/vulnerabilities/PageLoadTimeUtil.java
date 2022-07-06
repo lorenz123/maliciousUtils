@@ -15,20 +15,17 @@ import static com.bibvip.utility.vulnerabilities.ExceedLoadTimeUtil.exceedExpect
 @Slf4j
 public class PageLoadTimeUtil {
 
-    private static long start;
-    private static long finish;
-    private static long totalTime;
 
     public static WebDriver getPageLoadTime(String baseURL) throws TimeoutException {
-        start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         driver.get(baseURL);
         driver.manage().window().maximize();
         JavascriptExecutor j = (JavascriptExecutor) driver;
         if (j.executeScript("return document.readyState").toString().equals("complete")) {
             log.info("Page loaded properly");
         }
-        finish = System.currentTimeMillis();
-        totalTime = finish - start;
+        long finish = System.currentTimeMillis();
+        long totalTime = finish - start;
         log.info("Browser Finished Loading in millis: " + totalTime);
         exceedExpectedLoadTime(totalTime);
         return driver;
