@@ -1,8 +1,14 @@
 package com.bibvip.utility.vulnerabilities;
 
 import com.bibvip.consts.ElementType;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+@Slf4j
 public class AppUtil {
     public static By getBy(String path, ElementType type) {
         switch (type) {
@@ -20,4 +26,16 @@ public class AppUtil {
                 throw new IllegalArgumentException();
         }
     }
+
+    public static byte[] sizeOfURIImage(String base64) throws UnsupportedEncodingException {
+        return Base64.getDecoder().decode(base64.split("\\.")[0].
+                replace('-', '+').replace('_', '/'));
+//        String imageDecode = URLDecoder.decode(base64, "UTF-8");
+//        log.info("imageDecode = " + imageDecode);
+/*
+        byte[] decodeImageToURL = Base64.getDecoder().decode(base64.replaceAll("-", "+").replaceAll("_", "/"));
+        log.info("decodeImageToURL = " + decodeImageToURL);
+        return decodeImageToURL;*/
+    }
 }
+

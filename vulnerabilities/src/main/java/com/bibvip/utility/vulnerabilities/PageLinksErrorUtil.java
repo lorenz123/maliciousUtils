@@ -1,6 +1,7 @@
 package com.bibvip.utility.vulnerabilities;
 
 import lombok.extern.slf4j.Slf4j;
+import org.asynchttpclient.uri.Uri;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,6 +28,9 @@ public class PageLinksErrorUtil {
 
             WebElement element = elementList.get(j);
             String links = element.getAttribute("href");
+
+
+
             URL link = new URL(links);
 
             HttpURLConnection connection = (HttpURLConnection) link.openConnection();
