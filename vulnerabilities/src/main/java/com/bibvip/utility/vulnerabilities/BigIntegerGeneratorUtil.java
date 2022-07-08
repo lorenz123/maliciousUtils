@@ -6,11 +6,7 @@ import java.math.BigInteger;
  */
 public class BigIntegerGeneratorUtil {
 
-    public static BigInteger generatePositiveIntegers(){
-        return BigInteger.valueOf((long) (Math.random() * (Math.random() * 999999999)));
-    }
+    public static BigInteger generatePositiveIntegers(){ return BigInteger.valueOf((long) (Math.random() * (Math.random() * 999999999))); }
 
-    public static BigInteger generateNegativeIntegers(){
-        return BigInteger.valueOf((long) (Math.random() * (Math.random() * 999999999))).negate();
-    }
+    public static BigInteger generateNegativeIntegers(){ return BigInteger.valueOf((long) (Math.random() * (Math.random() * 999999999))).negate(); }
 }

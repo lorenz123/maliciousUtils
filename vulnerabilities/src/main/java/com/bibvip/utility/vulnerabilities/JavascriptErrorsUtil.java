@@ -11,7 +11,6 @@ import java.util.Date;
 /**
  * This utility class will extract the JavaScript Errors of the current page.
  */
-
 @Slf4j
 public class JavascriptErrorsUtil {
 
@@ -23,7 +22,6 @@ public class JavascriptErrorsUtil {
             result = new Date(entry.getTimestamp()) + " | " + entry.getLevel() + " | " + entry.getMessage();
             log.info("Some JavaScript errors are detected!!! {}", result);
         }
-
         if(result == null){
             log.info("Good thing! The page is free from JavaScript errors!");
         }

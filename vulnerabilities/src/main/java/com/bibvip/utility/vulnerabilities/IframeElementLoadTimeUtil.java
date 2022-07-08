@@ -25,14 +25,13 @@ public class IframeElementLoadTimeUtil {
 
     public static WebElement getIframeElementLoadTime(WebDriverWait driverWait, String iframePath, String url, ElementType type) throws TimeoutException {
         long start = System.currentTimeMillis();
-        WebElement iframe = getElementWithPolling(driverWait, getBy(iframePath, TAG_NAME)); //Solution to my problem <3
+        WebElement iframe = getElementWithPolling(driverWait, getBy(iframePath, TAG_NAME));
         driver.switchTo().frame(iframe);
         WebElement element = getElementWithPolling(driverWait, getBy(url, type));
         long finish = System.currentTimeMillis();
         long totalTime = finish - start;
-        log.info("Total time to finish loading element : " + element.getText() + " = " + totalTime);
+        log.info("Total time to finish loading WebElement with Iframe On: " + element.getText() + " = " + totalTime);
         exceedExpectedLoadTime(totalTime);
-
         return element;
     }
 

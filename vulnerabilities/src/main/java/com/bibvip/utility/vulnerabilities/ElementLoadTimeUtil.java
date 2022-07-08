@@ -22,9 +22,8 @@ public class ElementLoadTimeUtil {
         WebElement element = getElementWithPolling(driverWait, getBy(url, type));
         long finish = System.currentTimeMillis();
         long totalTime = finish - start;
-        log.info("Total time to finish loading element : " + element.getText() + " = " + totalTime);
+        log.info("Total time to finish loading WebElement : " + element.getText() + " = " + totalTime);
         exceedExpectedLoadTime(totalTime);
-
         return element;
     }
 }

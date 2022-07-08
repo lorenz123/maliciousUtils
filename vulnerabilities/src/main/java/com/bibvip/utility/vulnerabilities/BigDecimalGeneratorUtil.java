@@ -7,12 +7,10 @@ import java.math.BigDecimal;
  */
 public class BigDecimalGeneratorUtil {
 
-    public static BigDecimal generatePositiveDecimals(){
-        return BigDecimal.valueOf(Math.random() * (Math.random() * 99.99));
-
-    }
+    public static BigDecimal generatePositiveDecimals(){ return BigDecimal.valueOf(Math.random() * (Math.random() * 99.99)); }
 
     public static BigDecimal generateNegativeDecimals(){
         return BigDecimal.valueOf(Math.random()*-99.99);
     }
+
 }
