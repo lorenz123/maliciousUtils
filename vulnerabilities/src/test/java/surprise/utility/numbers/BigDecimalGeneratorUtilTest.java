@@ -11,12 +11,24 @@ class BigDecimalGeneratorUtilTest {
 
     @Test
     void generatePositiveBigDecimals() {
-        BigDecimalGeneratorUtil.generatePositiveBigDecimals();
+        BigDecimal a = BigDecimalGeneratorUtil.generatePositiveBigDecimals();
+        BigDecimal b = BigDecimalGeneratorUtil.generatePositiveBigDecimals();
 
+        if(a.compareTo(b) < 0){
+            log.info("pass");
+        } else {
+            log.error("error, not returning a bigdecimal");
+        }
     }
 
     @Test
     void generateNegativeBigDecimals() {
-        BigDecimalGeneratorUtil.generatePositiveBigDecimals();
+        BigDecimal a = BigDecimalGeneratorUtil.generatePositiveBigDecimals();
+        BigDecimal b = BigDecimalGeneratorUtil.generatePositiveBigDecimals();
+        if(a.compareTo(b) < 0){
+            log.info("pass");
+        } else {
+            log.error("error, not returning a bigdecimal");
+        }
     }
 }
