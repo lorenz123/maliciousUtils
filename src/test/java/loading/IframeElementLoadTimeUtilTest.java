@@ -1,6 +1,5 @@
 package loading;
 
-import loading.IframeElementLoadTimeUtil;
 import org.junit.jupiter.api.Test;
 import config.DriverConfig;
 import consts.ElementType;

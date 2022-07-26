@@ -1,6 +1,5 @@
 package errors;
 
-import errors.JavascriptErrorsUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeoutException;

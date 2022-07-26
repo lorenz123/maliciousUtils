@@ -1,6 +1,5 @@
 package links;
 
-import links.PageLinksErrorUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

@@ -1,7 +1,6 @@
 package shared;
 
 import org.junit.jupiter.api.Test;
-import shared.StatusCheckerUtil;
 
 import java.io.IOException;
 

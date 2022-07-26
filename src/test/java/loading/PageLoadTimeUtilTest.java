@@ -1,8 +1,7 @@
 package loading;
 
-import loading.PageLoadTimeUtil;
-import org.junit.jupiter.api.Test;
 import config.DriverConfig;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeoutException;
 

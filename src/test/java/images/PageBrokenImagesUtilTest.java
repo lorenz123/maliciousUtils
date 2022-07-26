@@ -1,6 +1,5 @@
 package images;
 
-import images.PageBrokenImagesUtil;
 import org.junit.jupiter.api.Test;
 
 class PageBrokenImagesUtilTest {

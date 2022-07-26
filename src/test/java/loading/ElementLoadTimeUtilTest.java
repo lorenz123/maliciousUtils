@@ -1,9 +1,8 @@
 package loading;
 
-import loading.ElementLoadTimeUtil;
-import org.junit.jupiter.api.Test;
 import config.DriverConfig;
 import consts.ElementType;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeoutException;
 

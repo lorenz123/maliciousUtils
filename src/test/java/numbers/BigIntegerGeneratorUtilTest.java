@@ -1,7 +1,6 @@
 package numbers;
 
 import lombok.extern.slf4j.Slf4j;
-import numbers.BigIntegerGeneratorUtil;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;

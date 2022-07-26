@@ -24,7 +24,7 @@ public class DriverConfig {
     public static WebDriverWait driverWait = null;
 
     public static WebDriver getChromeConfig() throws TimeoutException {
-        String environmentToTest = "http://chainupweb.bibtest.com/en_US/futures/E-LINK-USDT";
+        String environmentToTest = "https://www.bibvip.com/en_US/futures";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         LoggingPreferences loggingPreferences = new LoggingPreferences();
         loggingPreferences.enable(LogType.BROWSER, Level.ALL);
